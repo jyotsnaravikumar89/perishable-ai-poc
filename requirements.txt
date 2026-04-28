@@ -1,0 +1,10 @@
+pydantic>=2.0
+pyyaml>=6.0
+rich>=13.0
+pytest>=7.0
+
+# Optional — uncomment to enable features:
+# streamlit>=1.30.0          # Dashboard: streamlit run dashboard.py
+# fastapi>=0.110.0           # API server: uvicorn api:app --reload
+# uvicorn[standard]>=0.27.0  # ASGI server for FastAPI
+# anthropic>=0.40.0          # LLM reasoning agent (requires ANTHROPIC_API_KEY)

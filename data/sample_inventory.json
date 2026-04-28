@@ -1,0 +1,23 @@
+{
+  "warehouse_id": "WH-DUBLIN-01",
+  "inventory_date": "2026-04-22",
+  "notes": "Sample seed data for FreshFleet POC. In production, this would come from WMS integration.",
+  "items": [
+    {"produce_type": "tomato", "variant": "roma", "case_count": 12, "bay": "A-1", "received_days_ago": 3},
+    {"produce_type": "tomato", "variant": "cherry", "case_count": 8, "bay": "A-2", "received_days_ago": 6},
+    {"produce_type": "strawberry", "variant": "organic", "case_count": 6, "bay": "B-1", "received_days_ago": 4},
+    {"produce_type": "strawberry", "variant": "standard", "case_count": 10, "bay": "B-1", "received_days_ago": 1},
+    {"produce_type": "spinach", "variant": "baby", "case_count": 15, "bay": "C-1", "received_days_ago": 5},
+    {"produce_type": "spinach", "variant": "flat_leaf", "case_count": 7, "bay": "C-2", "received_days_ago": 2},
+    {"produce_type": "banana", "variant": "cavendish", "case_count": 20, "bay": "A-3", "received_days_ago": 7},
+    {"produce_type": "banana", "variant": "cavendish", "case_count": 14, "bay": "A-3", "received_days_ago": 2},
+    {"produce_type": "lettuce", "variant": "romaine", "case_count": 9, "bay": "C-1", "received_days_ago": 3},
+    {"produce_type": "lettuce", "variant": "iceberg", "case_count": 11, "bay": "C-2", "received_days_ago": 6},
+    {"produce_type": "blueberry", "variant": "organic", "case_count": 5, "bay": "B-2", "received_days_ago": 1},
+    {"produce_type": "blueberry", "variant": "standard", "case_count": 8, "bay": "B-2", "received_days_ago": 7},
+    {"produce_type": "avocado", "variant": "hass", "case_count": 10, "bay": "A-1", "received_days_ago": 4},
+    {"produce_type": "avocado", "variant": "fuerte", "case_count": 6, "bay": "A-2", "received_days_ago": 1},
+    {"produce_type": "bell_pepper", "variant": "red", "case_count": 13, "bay": "B-3", "received_days_ago": 2},
+    {"produce_type": "bell_pepper", "variant": "green", "case_count": 9, "bay": "B-3", "received_days_ago": 8}
+  ]
+}

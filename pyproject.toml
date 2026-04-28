@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "freshfleet"
+version = "0.1.0"
+description = "Agentic AI for Perishable Food Warehouse Operations"
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.0",
+    "pyyaml>=6.0",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dashboard = ["streamlit>=1.30.0"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+freshfleet = "main:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,0 +1,107 @@
+# FreshFleet Agentic AI Configuration
+# ────────────────────────────────────
+
+# 3-Tier freshness classification thresholds
+classification:
+  # Remaining shelf-life thresholds (in days)
+  tier1_max_days: 2       # T1: SHIP_NOW — 0-2 days remaining
+  tier2_max_days: 5       # T2: SHIP_SOON — 3-5 days remaining
+                          # T3: STORE     — 6+ days remaining
+
+  # Freshness score boundaries (0.0 = spoiled, 1.0 = peak fresh)
+  score_thresholds:
+    critical: 0.35        # Below this → SHIP_NOW
+    warning: 0.65         # Below this → SHIP_SOON
+                          # Above this → STORE
+
+# Vision agent feature weights for composite freshness scoring
+vision:
+  weights:
+    color_score: 0.30       # Surface color deviation from ideal
+    firmness_score: 0.25    # Structural integrity
+    blemish_score: 0.20     # Surface defect ratio
+    ethylene_level: 0.15    # Ripening gas concentration (ppm)
+    temperature_delta: 0.10 # Deviation from optimal storage temp
+
+# Produce catalog — baseline shelf life and optimal conditions
+produce_catalog:
+  tomato:
+    category: fruit_vegetable
+    max_shelf_life_days: 10
+    optimal_temp_c: 12.0
+    optimal_humidity_pct: 90
+    ethylene_sensitivity: high
+    variants: [roma, cherry, beefsteak, heirloom]
+
+  strawberry:
+    category: berry
+    max_shelf_life_days: 7
+    optimal_temp_c: 2.0
+    optimal_humidity_pct: 95
+    ethylene_sensitivity: low
+    variants: [standard, organic]
+
+  spinach:
+    category: leafy_green
+    max_shelf_life_days: 7
+    optimal_temp_c: 1.0
+    optimal_humidity_pct: 95
+    ethylene_sensitivity: high
+    variants: [baby, mature, flat_leaf]
+
+  banana:
+    category: fruit
+    max_shelf_life_days: 12
+    optimal_temp_c: 13.0
+    optimal_humidity_pct: 85
+    ethylene_sensitivity: high
+    variants: [cavendish, plantain]
+
+  lettuce:
+    category: leafy_green
+    max_shelf_life_days: 8
+    optimal_temp_c: 1.0
+    optimal_humidity_pct: 98
+    ethylene_sensitivity: high
+    variants: [romaine, iceberg, butterhead]
+
+  blueberry:
+    category: berry
+    max_shelf_life_days: 10
+    optimal_temp_c: 0.5
+    optimal_humidity_pct: 95
+    ethylene_sensitivity: low
+    variants: [standard, organic, wild]
+
+  avocado:
+    category: fruit
+    max_shelf_life_days: 7
+    optimal_temp_c: 5.0
+    optimal_humidity_pct: 90
+    ethylene_sensitivity: high
+    variants: [hass, fuerte]
+
+  bell_pepper:
+    category: fruit_vegetable
+    max_shelf_life_days: 14
+    optimal_temp_c: 7.5
+    optimal_humidity_pct: 95
+    ethylene_sensitivity: medium
+    variants: [red, green, yellow, orange]
+
+# Dispatch settings
+dispatch:
+  max_items_per_pick_list: 20
+  warehouse_bays: [A-1, A-2, A-3, B-1, B-2, B-3, C-1, C-2]
+  priority_weights:
+    freshness_urgency: 0.50   # How close to spoilage
+    quantity_factor: 0.20     # Larger batches = higher priority
+    ethylene_risk: 0.15       # High ethylene producers near sensitives
+    demand_signal: 0.15       # Store demand (simulated)
+
+# Orchestrator settings
+orchestrator:
+  pipeline_mode: sequential   # sequential | parallel (future)
+  enable_events: true
+  rescan_interval_hours: 48   # Re-scan T3 items after this interval
+  log_level: INFO
